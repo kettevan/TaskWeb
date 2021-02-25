@@ -1,0 +1,53 @@
+<div class="mainForm">
+    <form [formGroup]="form" class="col-6 col-md-4">
+      <div class="form-group">
+        <label id="status">Task Name:</label>
+        <input type="text" class="form-control" id="taskNameField" placeholder="Enter Task Name" formControlName="taskname"> 
+        <div *ngIf="taskname.invalid && (taskname.dirty || taskname.touched)"
+                    class="alert alert-danger text" style="font-size: 0.6rem;">
+            <div *ngIf="taskname.errors">
+                Task Name is required
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label id="workHourLabel">Working Hours:</label>
+        <input type="text" class="form-control" id="workHourField" placeholder="Enter defined work hours" formControlName="workingHours">
+        <div *ngIf="workingHours.invalid && (workingHours.dirty || workingHours.touched)"
+                    class="alert alert-danger text" style="font-size: 0.6rem;">
+            <div *ngIf="workingHours.errors">
+                Working Hours is required
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+          <label id="status">Current Status:</label>
+          <input type="text" class="form-control" id="statusField" placeholder="Current Status" value="To Do" formControlName="status" disabled> 
+      </div>
+      <div class="form-group">
+          <label for="exampleFormControlSelect1">Select User</label>
+          <select class="form-control" id="selectUserdropdown" formControlName="user">
+            <option *ngFor="let user of userList" value="{{user.id}}">{{user.fullname}}</option>
+            
+          </select>
+          <div *ngIf="user.invalid && (user.dirty || user.touched)"
+                    class="alert alert-danger text" style="font-size: 0.6rem;">
+            <div *ngIf="user.errors">
+                User is required
+            </div>
+        </div>
+      </div>  
+      <div class="header_nav-buttons" id="submitBtn"> 
+        <button class="btn btn-primary buttonType"  (click)="createTask()">
+            Create
+        </button>
+        <div id="errorMessage" [hidden]="errorMessageBoolean"
+                                    class="alert alert-danger text">
+                        All Fields Are Required
+        </div>
+        <div [hidden]="savedMessage">
+          <h2>Saved!</h2>
+        </div>
+      </div>
+      </form>
+</div>

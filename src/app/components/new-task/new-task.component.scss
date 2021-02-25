@@ -1,0 +1,24 @@
+.mainForm {
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    padding: 20px 10px
+}
+
+.form-group {
+    padding-top: 20px;
+}
+
+label {
+    padding-bottom: 5px;
+}
+
+#submitBtn {
+    text-align: center;
+    padding: 20px;
+}
+
+#errorMessage {
+    font-size: 0.7rem;
+    margin: 15px;
+}

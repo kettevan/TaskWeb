@@ -1,1 +1,13 @@
-<p>main-page works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"  *ngFor="let task of taskList">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{task.name}}</h5>
+                    <p class="card-text">Working Hours {{task.workingHours}}</p>
+                    <a [routerLink]="['/edit', task.id]" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
